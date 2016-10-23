@@ -1,0 +1,50 @@
+<html>
+   <header>
+	<title>About Us: Elixir</title>
+	<link rel = "stylesheet" style = "text/css" href = "about.css">	
+
+        <script language = "Javascript">
+           var speed = 4000
+           var slide = new Array()
+
+           slide[0] = "west.jpg"
+           slide[1] = "westcottnight.jpg"
+           slide[2] = "chop.jpg"
+           slide[3] = "stadium.jpg"
+
+           var x
+           var i = 0
+           var size = slide.length
+
+           var y = new Array()
+
+           for(j = 0; j < size; ++j){
+                y[i] = new Image()
+                y[i].src = slide[i]
+           }
+
+           function slideShow(){
+                if(document.body){
+                   document.body.background = slide[i]
+                   ++i
+                   if(i > (size - 1)) i = 0
+
+                   x = setTimeout("slideShow()", speed);
+                }
+           }
+
+        </script>
+
+
+   </header>
+
+
+   <body>
+	<h1> Our Mission </h1>
+	<p>
+
+	</p>
+   </body>
+
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+    <style media="screen">
+      body {
+        font-family: Roboto, Arial, sans-serif;
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+      }
+
+      a {
+        color: rgb(3,155,229);
+      }
+
+      #message {
+        max-width: 400px;
+        margin: 40px auto;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+        border-radius: 2px;
+        background: white;
+        padding: 16px 24px;
+      }
+
+      #message h1 {
+        font-size: 22px;
+        font-weight: 500;
+        text-align: center;
+        margin: 0 0 16px;
+      }
+
+      #message p {
+        font-weight: 300;
+        line-height: 150%;
+      }
+
+      #message ul {
+        list-style: none;
+        margin: 16px 0 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      #message li a {
+        display: inline-block;
+        padding: 8px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        background: rgb(3,155,229);
+        color: white;
+        border: 1px solid rgb(3,155,229);
+        border-radius: 3px;
+        font-size: 14px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+      }
+        
+   
+    </style>
+  </head>
+  <body>
+    
+
+      <div id="squares">
+        <div id="1"></div>
+        <div id="2"></div>
+        <div id="3"></div>
+      </div>
+      
+      
+      
+    <h1 id="bigOne">h</h1>
+    <form>
+      First name:<br>
+      <input type="text" name="firstname" id="firstname"><br>
+      Last name:<br>
+      <input type="text" name="lastname" id="lastname">
+    </form>
+
+    <button type="button" onclick="writeUserData('service_provider', 'helmut', 'null', 'downtown', '876');" name="first">Click me Bitch!</button>
+    
+    <!-- <button type="button" onclick="create_table();">Click me please B!</button> -->
+    <button type="button" onclick="window.open('pop_up.html','mywin','width=500,height=500');">Click me please B!</button>
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDQFEaP7UHTZ5YU8tTf2ATatw4hou5i7Z8",
+            authDomain: "helpthehomeless-bc93a.firebaseapp.com",
+            databaseURL: "https://helpthehomeless-bc93a.firebaseio.com",
+            storageBucket: "helpthehomeless-bc93a.appspot.com",
+            messagingSenderId: "732959824565"
+        };
+        firebase.initializeApp(config);
+
+      var bigOne = document.getElementById('bigOne');
+      var dbRef = firebase.database().ref().child('users/');
+     //dbRef.on('value', snap => bigOne.innerText = snap.val()); 
+
+      function writeUserData (root, userId, name, email, imageUrl) {
+            firebase.database().ref('/' + root + '/' + userId).set({
+            fname: name,
+            lname: email,
+            phone_number : imageUrl
+            });
+       }
+        
+        function getData (root, userId, name, location) {
+            var userId = firebase.auth().currentUser.uid;
+            return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+              var username = snapshot.val().username;
+              
+            });
+       }
+       
+        function create_table () {
+            //document.getElementById('bigOne').innerHTML = 'tupapa';
+            var s= "hello";
+            var query = firebase.database().ref("phone").orderByKey();
+            query.once("value").then(function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                // key will be "ada" the first time and "alan" the second time
+                    s+=s;
+                    document.getElementById('bigOne').innerHTML = s;
+                    var key = childSnapshot.key;
+                    document.getElementById('bigOne').innerHTML = key;
+                    // childData will be the actual contents of the child
+                    var childData = childSnapshot.val();
+                });
+            });
+            
+        }
+        
+       function addServiceData (userId, date, location, time) {
+            firebase.database().ref('/service/' + userId).set({
+            date: date,
+            locaiton: locaiton,
+            time: time
+            //phone_number : imageUrl
+            });
+       }
+      </script>
+  </body>
+</html>

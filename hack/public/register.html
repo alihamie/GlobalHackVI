@@ -1,0 +1,119 @@
+<html>
+	<head>
+		<meta property="og:title" content="Elixir: Breathing Life Back Into Our Neighborhoods" />
+		<link rel='stylesheet' id='login-css'  href='loginCss.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='more-css'  href='more.css' type='text/css' media='all' />
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		<title>Register With Us</title>
+		<h1 class="header">Elixir: Breathing Life Back Into Our Neighborhoods    
+    	</h1>
+
+	</head>
+	<body class="bodyy">
+        <div class="box">
+            <div class="container">
+		<form name ="register" id="register" >
+			Email Address: <input type='text' id="userEmail" name='email'><br>
+			Phone Number: <input type='text' id="userPhone" name='phone'><br>
+			Password: <input type='password' name='pass'  size="20" tabindex="20"><br>
+			<br>
+            </div>
+            
+			<div class="dropdown">
+				<button class="dropbtn" >Are you registered with the CoC?</button>
+				 <div class="dropdown-content">
+    				<a href="index.html" value="yes"  onclick="register_isCOC(true);">Yes</a>
+    				<a href="services.html" value="no" onclick="register_isCOC(false);">No</a>
+   				 </div>   				 
+  			</div>
+  			<br>
+  			<br>
+
+		</form>
+        </div>
+        
+            <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDQFEaP7UHTZ5YU8tTf2ATatw4hou5i7Z8",
+            authDomain: "helpthehomeless-bc93a.firebaseapp.com",
+            databaseURL: "https://helpthehomeless-bc93a.firebaseio.com",
+            storageBucket: "helpthehomeless-bc93a.appspot.com",
+            messagingSenderId: "732959824565"
+        };
+        
+        firebase.initializeApp(config);
+
+      var bigOne = document.getElementById('bigOne');
+      var dbRef = firebase.database().ref().child('users/');
+     //dbRef.on('value', snap => bigOne.innerText = snap.val()); 
+        
+    
+
+      function writeUserData (root, userId, lname, fname,  email, isCOC, phone) {
+          
+          
+              firebase.database().ref('/' + root + '/' + userId).set({
+                email: email,
+                isCOC: isCOC,
+                lname : lname,
+                phone: phone    
+            });
+              
+              
+    }
+    
+        
+        function getData (root, userId, name, location) {
+            var userId = firebase.auth().currentUser.uid;
+            return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+              var username = snapshot.val().username;
+              
+            });
+       }
+       
+        function create_table () {
+            //document.getElementById('bigOne').innerHTML = 'tupapa';
+            var s= "hello";
+            var query = firebase.database().ref("phone").orderByKey();
+            query.once("value").then(function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                // key will be "ada" the first time and "alan" the second time
+                    s+=s;
+                    document.getElementById('bigOne').innerHTML = s;
+                    var key = childSnapshot.key;
+                    document.getElementById('bigOne').innerHTML = key;
+                    // childData will be the actual contents of the child
+                    var childData = childSnapshot.val();
+                });
+            });
+            
+        }
+        
+       function addServiceData (userId, date, location, time) {
+            firebase.database().ref('/service/' + userId).set({
+            date: date,
+            locaiton: locaiton,
+            time: time
+            //phone_number : imageUrl
+            });
+       }
+        
+        function register_isCOC (str) {
+            
+            //function writeUserData (root, userId, lname, fname,  email, isCOC, phone)
+            
+            var email_html = document.getElementById('userEmail').value;
+            var phone_html = document.getElementById('userPhone').value;
+            
+            writeUserData ('service_provider', email_html, 'null', 'null',  email_html, str, phone_html);
+            
+            return true;                                    
+            
+        }
+        
+      </script>
+	</body>
+
+</html>

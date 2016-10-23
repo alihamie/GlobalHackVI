@@ -1,0 +1,59 @@
+<html>
+   <header>
+
+
+	<title>About Us: Elixir</title>
+	<link rel = "stylesheet" style = "text/css" href = "about.css">	
+
+        <script language = "Javascript">
+           var speed = 4000
+           var slide = new Array()
+
+           slide[0] = "west.jpg"
+           slide[1] = "westcottnight.jpg"
+           slide[2] = "chop.jpg"
+           slide[3] = "stadium.jpg"
+
+           var x
+           var i = 0
+           var size = slide.length
+
+           var y = new Array()
+
+           for(j = 0; j < size; ++j){
+                y[i] = new Image()
+                y[i].src = slide[i]
+           }
+
+           function slideShow(){
+                if(document.body){
+                   document.body.background = slide[i]
+                   ++i
+                   if(i > (size - 1)) i = 0
+
+                   x = setTimeout("slideShow()", speed);
+                }
+           }
+
+        </script>
+	<h1> Our Mission </h1>
+
+
+   </header>
+
+
+   <body>
+	<p>
+		We strongly believe every human deserves convenient access to food and shelter. </br>
+		Our team believes it is the right of every human to have a bed to sleep on and consume a healthy diet that keeps them energized.</br>
+		Therefore, we have taken it upon ourselves to tackle poverty from different angles. </br>
+		By supplying the impoverished with real time data, our software allows people to take advantage of</br>
+		opportunites such as cheap of free food, nearby shelters, or even job opportunities.</br>
+		This app does not simply process data. Our software analyzes data from various sources to provide people</br>
+		in need with the opportunity to enhance their lives.</br>
+		
+	</p>
+   </body>
+
+
+</html>

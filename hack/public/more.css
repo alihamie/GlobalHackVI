@@ -1,0 +1,160 @@
+	.header1{
+	   padding-top: 20px;
+	   opacity: 0.85;
+	   width: 100%;
+	   color: white;
+	}
+
+
+	
+	.header
+	{ 
+			padding-top: 20px;
+            padding-bottom: 15px; 
+ 	   		text-align: center;
+    		color: #DAA520;
+            font-weight: bold;
+	   opacity: 0.8;
+	   width: 900px;
+    	}
+        h1{
+	    width: 100%;
+	    top: 20px;
+            font-size:
+            325%;
+        }
+    	.bodyy{
+            margin: 0 auto; 
+            display: table;
+            font-weight: bold;
+    		background-image: url(img/hands.png);
+            background-repeat: no-repeat;
+            text-align: center;
+            background-position: center;
+            background-attachment: scroll;
+            text-align: center;
+            color: black;
+            background-size: cover;
+            font-weight: bold;
+	    width: 400px;	   	    
+    	}
+                .bodyyy{
+            margin: 0 auto;
+            display: table;
+            font-weight: bold;
+            background-image: url(img/poverty.png);
+            background-repeat: no-repeat;
+            text-align: center;
+            background-position: center;
+            background-attachment: scroll;
+            text-align: center;
+            color: black;
+            background-size: cover;
+            font-weight: bold;
+    
+        }
+
+.box{
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   border-bottom-right-radius: 15px;
+   border-bottom-left-radius: 15px;
+   padding-top: 40px;
+   padding-bottom: 40px;
+   opacity: 0.85;
+   background: #DAA520;
+}
+
+.box input{
+   text-align: left;
+
+}
+
+.box1{
+   top: 500px;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   border-bottom-right-radius: 15px;
+   border-bottom-left-radius: 15px;
+   padding-top: 40px;
+   padding-bottom: 40px;
+   background-color: #808080;
+   opacity: 0.85;
+}
+
+.container{
+   margin: 0 auto;
+   width: 300px;
+   clear: both;
+}
+
+.container input{
+   width: 100%;
+   clear: both;
+
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    min-width: 280px;
+    text-align: center;
+}
+
+.dropButn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    min-width: 108px;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 280px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 108px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+}
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}

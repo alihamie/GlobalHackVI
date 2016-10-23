@@ -1,0 +1,163 @@
+<html>
+	<head>
+		<meta property="og:title" content="Elixir Services" />
+		<link rel='stylesheet' id='login-css'  href='loginCss.css' type='text/css' media='all' />
+		<link rel='stylesheet' id='more-css'  href='more.css' type='text/css' media='all' />
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+		<title>Post your Services</title>
+		<h1 class="header1">Reach those in need with your services    
+    	</h1>
+	</head>
+	<body class="bodyyy"> 
+        <div class = "box1">
+	  <div class = "container">
+		<form name ="services" id="services" >
+			Name of Service: <input type='text' name='serviceName' id='serviceName'><br>
+			Phone Number: <input type='text' name='phoneNumber' id='phonenumber'><br>
+			Address: <input type='text' name='address' id='address'><br>
+			Zip Code: <input type='text' name='zip'  size="20" tabindex="20" id='zip'><br>
+			City:<input type='text' name='city' id='city'><br>
+            Notes:<input type='text' name='notes' id='notes'><br>
+	   </div>
+			<div class="dropdown">
+				<select class="dropButn" name="stateCode" id="state">State
+				 <div class="dropdownContent">
+				 	<option value=NULL>(State)</option>
+    				<option value="AK">AK</option>
+    				<option value="AL">AL</option>
+    				<option value="AR">AR</option>
+    				<option value="AZ">AZ</option>
+    				<option value="CA">CA</option>
+    				<option value="CO">CO</option>    				
+    				<option value="CT">CT</option>
+					<option value="DC">DC</option>
+					<option value="DE">DE</option>
+					<option value="FL">FL</option>
+					<option value="GA">GA</option>
+					<option value="HI">HI</option>
+					<option value="IA">IA</option>
+					<option value="ID">ID</option>
+					<option value="IL">IL</option>
+					<option value="IN">IN</option>
+					<option value="KS">KS</option>
+					<option value="KY">KY</option>
+					<option value="LA">LA</option>
+					<option value="MA">MA</option>
+					<option value="MD">MD</option>
+					<option value="ME">ME</option>
+					<option value="MI">MI</option>
+					<option value="MN">MN</option>
+					<option value="MO">MO</option>
+					<option value="MS">MS</option>
+					<option value="MT">MT</option>
+					<option value="NC">NC</option>
+					<option value="NC">ND</option>
+					<option value="NE">NE</option>
+					<option value="NJ">NJ</option>
+					<option value="NM">NM</option>
+					<option value="NV">NV</option>
+					<option value="NY">NY</option>
+					<option value="OH">OH</option>
+					<option value="OK">OK</option>
+					<option value="OR">OR</option>
+					<option value="PA">PA</option>
+					<option value="RI">RI</option>
+					<option value="SC">SC</option>
+					<option value="SD">SD</option>
+					<option value="IN">TN</option>
+					<option value="TX">TX</option>
+					<option value="UT">UT</option>
+					<option value="VA">VA</option>
+					<option value="VT">VT</option>
+					<option value="WA">WA</option>
+					<option value="WI">WI</option>
+					<option value="WV">WV</option>
+					<option value="WY">WY</option>
+					</select>  				 
+  			</div>
+			<br>
+			<div class="dropdown">
+				<select class="dropbtn" name="serviceProvided" id="service">What service are you looking to provide?
+				 <div class="dropdown-content">
+				 	<option value=NULL>(Service Provided)</option>
+    				<option value="job">Job Posting</option>
+    				<option value="rent">Rental Assistance</option>
+    				<option value="shelter">Emergency Shelter</option>
+    				<option value="food">Food</option>
+    				<option value="medical">Medical</option>
+    				</select>
+				 
+  			</div>
+  			<br>
+<button class="dropButn" href="index.html" name="submitService" onclick="getFormData();">Submit</button>
+
+		</form>
+        
+                
+            <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDQFEaP7UHTZ5YU8tTf2ATatw4hou5i7Z8",
+            authDomain: "helpthehomeless-bc93a.firebaseapp.com",
+            databaseURL: "https://helpthehomeless-bc93a.firebaseio.com",
+            storageBucket: "helpthehomeless-bc93a.appspot.com",
+            messagingSenderId: "732959824565"
+        };
+        
+        firebase.initializeApp(config);
+
+      var bigOne = document.getElementById('bigOne');
+      var dbRef = firebase.database().ref().child('users/');
+     //dbRef.on('value', snap => bigOne.innerText = snap.val()); 
+        
+    
+    
+    function getFormData () {
+        var nameData = document.getElementById("serviceName").value;
+        var phone = document.getElementById("phonenumber").value;
+        var address = document.getElementById("address").value;
+        var zip = document.getElementById("zip").value;
+        var city = document.getElementById("city").value;
+        var state = document.getElementById("state").value;
+        var service = document.getElementById("service").value;
+        var notes = document.getElementById("notes").value;
+        
+        
+        writeUserData( 'jobs', nameData, phone, address, zip, city, 'FL', 'service', notes);
+        return true;
+    }
+
+      function writeUserData (root, userId, phone, address, zip, city, state, service, notes) {
+          
+          
+              firebase.database().ref('/' + root + '/' + userId).set({
+                name: phone,
+                phone: phone,
+                address : address,
+                zip: zip,
+                city: city,
+                state: state,
+                service: service,
+                notes: notes
+            });
+              
+          
+              
+    }
+    
+        
+        function getData (root, userId, name, location) {
+            var userId = firebase.auth().currentUser.uid;
+            return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+              var username = snapshot.val().username;
+              
+            });
+       }
+
+        
+      </script>
+            </div>
+	</body>
+
+</html>

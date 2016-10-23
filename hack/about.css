@@ -1,0 +1,23 @@
+body{
+
+   top: 300px;
+   background: no-repeat center center;
+   background-image: url("osceola.jpeg");
+   background-size: cover;
+   margin: 0;
+   padding: 0;
+
+}
+
+h1{
+   top: 300px;
+   text-align: center;
+   font-size: 35px;
+   color: white;
+}
+
+p{
+
+   color: white;
+
+}
