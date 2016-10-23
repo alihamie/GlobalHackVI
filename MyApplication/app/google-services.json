@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "732959824565",
+    "firebase_url": "https://helpthehomeless-bc93a.firebaseio.com",
+    "project_id": "helpthehomeless-bc93a",
+    "storage_bucket": "helpthehomeless-bc93a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732959824565:android:3ea3fdb54fec4547",
+        "android_client_info": {
+          "package_name": "com.example.helmutcardenas.people"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732959824565-r358aic52b2h56dpvsiqu26ori8ir8h0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.helmutcardenas.people",
+            "certificate_hash": "F52E01D842E5CFFA69DE23A95CEE8915A2E124BA"
+          }
+        },
+        {
+          "client_id": "732959824565-fap7a0056ndf92g3bdgoh94vh0n7gn9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY_ThvY60DrXIUqqVhitxrXbn4Rkvyoms"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732959824565-fap7a0056ndf92g3bdgoh94vh0n7gn9e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732959824565:android:d3812886caaf3e36",
+        "android_client_info": {
+          "package_name": "com.example.ali.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732959824565-fap7a0056ndf92g3bdgoh94vh0n7gn9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY_ThvY60DrXIUqqVhitxrXbn4Rkvyoms"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
